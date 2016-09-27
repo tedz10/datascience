@@ -11,13 +11,15 @@ import time
 import matplotlib
 import matplotlib.pyplot as plt
 import time as time
-%matplotlib inline
+#%matplotlib inline
 
 
+##################################
+#                                #
+#  Implement the models by hand  #
+#                                #
+##################################
 
-
-# Implement the models by hand
-# 
 # Write functions from scratch
 # Function: split (inputs: nx2 dataframe, float m)
 # return: nx2 dataframe train & nx2 dataframe test, with m percent and (100 - m) percent
@@ -122,22 +124,75 @@ def score(predicted, actual):
 #                                       #
 #########################################
 
-df_1_full = pd.read_csv('dataset_1_full.txt')
+df_1_full = pd.read_csv('dataset_2/dataset_1_full.txt')
 
 
 # Use previous functions to split the data
-# Evaluate how KNN/linear regression each perform
 
 x, y = split(df_1_full, 70)
 testing = pd.DataFrame(y.ix[:,0])
+
+# Evaluate how KNN/linear regression each perform
+
+#knn
+knn = knn_predict(50, x, pd.DataFrame(y.ix[:,0]))
+
+print "The r^2 value of our knn model: " + str(score(knn, y))
+
+#linear reg
+slope, constant = linear_reg_fit(x)
+lin = linear_reg_predict(pd.DataFrame(y.ix[:,0]), slope, constant)
+score(lin, y)
+
+print "The r^2 value of our regression model: " + str(score(lin, y))
 
 
 # Use sklearn to split the data into training and testing sets (70-30). 
 # Use sklearn to evaluate how KNN/linear regression each perform on this dataset.
 
-knn = knn_predict(50, x, pd.DataFrame(y.ix[:,0]))
 
-print "The r^2 value of our knn model: " + str(score(knn, y))
+train, test = sk_split(df_1_full, train_size = 0.7)
+
+k = 4
+
+#create separate train/test columns
+train_x = train.as_matrix(['x'])
+train_y = train.as_matrix(['y'])
+test_x = test.as_matrix(['x'])
+test_y = test.as_matrix(['y'])
+
+#sklearn split as per documentation example
+train, test = sk_split(df_1_full, train_size = 0.7)
+
+#sklearn KNN
+neighbors = KNN(n_neighbors = k)
+neighbors.fit(train_x, train_y)
+predicted_y = neighbors.predict(test_x)
+r = neighbors.score(test_x, test_y)
+
+print "The r^2 value of this knn model: " + str(r)
+
+
+#sklearn linear regression as per documentation example
+regression = Lin_Reg()
+regression.fit(train_x, train_y)
+predicted_y = regression.predict(test_x)
+r = regression.score(test_x, test_y)
+
+print "The r^2 value of the regression model: " + str(r)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
