@@ -333,19 +333,19 @@ k=10
 
 
 #Read dataset 1
-missing_df_1 = pd.read_csv('dataset_1_missing.txt')
-full_df_1 = pd.read_csv('dataset_1_full.txt')
+missing_df_1 = pd.read_csv('dataset_2/dataset_1_missing.txt')
+full_df_1 = pd.read_csv('dataset_2/dataset_1_full.txt')
 
-missing_df_2 = pd.read_csv('dataset_2_missing.txt')
-full_df_2 = pd.read_csv('dataset_2_full.txt')
-missing_df_3 = pd.read_csv('dataset_3_missing.txt')
-full_df_3 = pd.read_csv('dataset_3_full.txt')
-missing_df_4 = pd.read_csv('dataset_4_missing.txt')
-full_df_4 = pd.read_csv('dataset_4_full.txt')
-missing_df_5 = pd.read_csv('dataset_5_missing.txt')
-full_df_5 = pd.read_csv('dataset_5_full.txt')
-missing_df_6 = pd.read_csv('dataset_6_missing.txt')
-full_df_6 = pd.read_csv('dataset_6_full.txt')
+missing_df_2 = pd.read_csv('dataset_2/dataset_2_missing.txt')
+full_df_2 = pd.read_csv('dataset_2/dataset_2_full.txt')
+missing_df_3 = pd.read_csv('dataset_2/dataset_3_missing.txt')
+full_df_3 = pd.read_csv('dataset_2/dataset_3_full.txt')
+missing_df_4 = pd.read_csv('dataset_2/dataset_4_missing.txt')
+full_df_4 = pd.read_csv('dataset_2/dataset_4_full.txt')
+missing_df_5 = pd.read_csv('dataset_2/dataset_5_missing.txt')
+full_df_5 = pd.read_csv('dataset_2/dataset_5_full.txt')
+missing_df_6 = pd.read_csv('dataset_2/dataset_6_missing.txt')
+full_df_6 = pd.read_csv('dataset_2/dataset_6_full.txt')
 df_lst = [(missing_df_1, full_df_1), (missing_df_2, full_df_2), (missing_df_3, full_df_3), (missing_df_4, full_df_4), (missing_df_5, full_df_5), (missing_df_6, full_df_6)]
 
 #abstrct out as function
@@ -424,7 +424,7 @@ print "The k value that returns the highest r^2 value is: " + str(k_val[ind])
 # Calculate the R^2 coefficients
 
 #REad dataset_1_full.txt
-full_1 = pd.read_csv('dataset_1_full.txt')
+full_1 = pd.read_csv('dataset_2/dataset_1_full.txt')
 
 #Quickly visualize dataset to make first observations
 plt.scatter(full_1.iloc[:,0], full_1.iloc[:,1])
@@ -482,11 +482,11 @@ plot_comp(full_1, slope, constant)
 
 
 #read in other datasets
-full_2 = pd.read_csv('dataset_2_full.txt')
-full_3 = pd.read_csv('dataset_3_full.txt')
-full_4 = pd.read_csv('dataset_4_full.txt')
-full_5 = pd.read_csv('dataset_5_full.txt')
-full_6 = pd.read_csv('dataset_6_full.txt')
+full_2 = pd.read_csv('dataset_2/dataset_2_full.txt')
+full_3 = pd.read_csv('dataset_2/dataset_3_full.txt')
+full_4 = pd.read_csv('dataset_2/dataset_4_full.txt')
+full_5 = pd.read_csv('dataset_2/dataset_5_full.txt')
+full_6 = pd.read_csv('dataset_2/dataset_6_full.txt')
 
 #Run fits and plots on them to see effects
 
