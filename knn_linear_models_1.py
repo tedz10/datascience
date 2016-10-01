@@ -1,10 +1,11 @@
-#
-# Ted Zhu
-#
-# KNN and linear regression problems
-#
-#Originally done in IPython
-#
+############################################
+#     Ted Zhu                              #
+#                                          #
+#    KNN and linear regression problems    #
+#                                          #
+#    Originally done in IPython            #
+#                                          #
+############################################
 
 
 
